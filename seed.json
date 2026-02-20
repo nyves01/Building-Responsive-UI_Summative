@@ -1,0 +1,10 @@
+{
+  "transactions": [
+    {
+      "description": "Groceries",
+      "amount": 45.50,
+      "category": "Food",
+      "date": "2026-02-10"
+    }
+  ]
+}

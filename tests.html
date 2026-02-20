@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Finance Tracker - Module Tests</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f3f4f6;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .test-result {
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+    }
+
+    .pass {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .fail {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Module Test Suite</h1>
+
+  <div id="results"></div>
+
+  <script type="module">
+    import { validateTransaction } from "./scripts/validators.js";
+    import { searchTransactions } from "./scripts/search.js";
+    import { state } from "./scripts/state.js";
+
+    const resultsContainer = document.getElementById("results");
+
+    function addResult(name, passed) {
+      const div = document.createElement("div");
+      div.className = "test-result " + (passed ? "pass" : "fail");
+      div.textContent = `${name}: ${passed ? "PASS" : "FAIL"}`;
+      resultsContainer.appendChild(div);
+    }
+
+    /* =========================
+       TEST 1 — Validator Test
+    ========================== */
+    const invalidData = {
+      description: "",
+      amount: -5,
+      category: "",
+      date: ""
+    };
+
+    const errors = validateTransaction(invalidData);
+    addResult("Validator detects invalid input",
+      Object.keys(errors).length === 4
+    );
+
+    /* =========================
+       TEST 2 — Valid Input
+    ========================== */
+    const validData = {
+      description: "Lunch",
+      amount: 12.50,
+      category: "Food",
+      date: "2026-02-20"
+    };
+
+    const validErrors = validateTransaction(validData);
+    addResult("Validator accepts valid input",
+      Object.keys(validErrors).length === 0
+    );
+
+    /* =========================
+       TEST 3 — Search Function
+    ========================== */
+    const sampleTransactions = [
+      { description: "Lunch", category: "Food" },
+      { description: "Bus ticket", category: "Transport" }
+    ];
+
+    const searchResults = searchTransactions(sampleTransactions, "Lunch");
+    addResult("Search finds matching description",
+      searchResults.length === 1
+    );
+
+    /* =========================
+       TEST 4 — State Structure
+    ========================== */
+    addResult("State has transactions array",
+      Array.isArray(state.transactions)
+    );
+
+  </script>
+
+</body>
+</html>

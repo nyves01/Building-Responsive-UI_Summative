@@ -1,0 +1,255 @@
+/* ===============================
+   Student Finance Tracker
+   Mobile-First CSS Architecture
+================================= */
+
+/* ---------- 1. CSS Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1, h2, h3, p,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ---------- 2. Root Variables ---------- */
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1e40af;
+  --danger: #dc2626;
+  --success: #16a34a;
+  --bg: #f3f4f6;
+  --card-bg: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+}
+
+/* ---------- 3. Base Styles ---------- */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  padding: 16px;
+}
+
+h1 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 4px;
+}
+
+h3 {
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+/* ---------- 4. Skip Link ---------- */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary);
+  color: white;
+  padding: 8px;
+  z-index: 100;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 10px;
+}
+
+/* ---------- 5. Header ---------- */
+header {
+  background: var(--primary);
+  color: white;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- 6. Sections ---------- */
+section {
+  margin-bottom: 30px;
+}
+
+/* ---------- 7. Dashboard ---------- */
+.dashboard-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.dashboard-card {
+  background: var(--card-bg);
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+#cap-status {
+  margin-top: 12px;
+  font-weight: 500;
+}
+
+/* ---------- 8. Table (Mobile Scroll) ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card-bg);
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 0.9rem;
+}
+
+th,
+td {
+  padding: 10px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+th {
+  background: #f9fafb;
+  font-weight: 600;
+}
+
+/* Hide mobile cards by default */
+.records-cards {
+  display: none;
+}
+
+/* ---------- 9. Forms ---------- */
+form {
+  background: var(--card-bg);
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.form-group {
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+
+input {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+input:focus {
+  outline: 2px solid var(--primary);
+  border-color: var(--primary);
+}
+
+.error {
+  color: var(--danger);
+  font-size: 0.8rem;
+  margin-top: 2px;
+}
+
+/* ---------- 10. Buttons ---------- */
+button {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  background: var(--primary);
+  color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+button:hover {
+  background: var(--primary-dark);
+}
+
+button.delete-btn {
+  background: var(--danger);
+}
+
+button.delete-btn:hover {
+  opacity: 0.9;
+}
+
+/* ---------- 11. Footer ---------- */
+footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* =====================================
+   RESPONSIVE BREAKPOINTS
+===================================== */
+
+/* Tablet */
+@media (min-width: 640px) {
+  body {
+    padding: 24px;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  nav ul {
+    gap: 20px;
+  }
+
+  table {
+    font-size: 1rem;
+  }
+}

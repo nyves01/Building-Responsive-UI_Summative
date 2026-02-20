@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Finance Tracker</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <!-- Skip to content link for accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header -->
+  <header>
+    <h1>Student Finance Tracker</h1>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#dashboard">Dashboard</a></li>
+        <li><a href="#records">Records</a></li>
+        <li><a href="#form">Add Transaction</a></li>
+        <li><a href="#settings">Settings</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main content -->
+  <main id="main-content">
+
+    <!-- About Section -->
+    <section id="about">
+      <h2>About</h2>
+      <p>This app helps students track their daily expenses, see stats, and manage budgets efficiently.</p>
+      <p>Contact: <a href="mailto:youremail@example.com">youremail@example.com</a> | 
+         <a href="https://github.com/YourUsername" target="_blank">GitHub</a>
+      </p>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard">
+      <h2>Dashboard</h2>
+      <div class="dashboard-grid">
+        <div class="dashboard-card" id="total-records">
+          <h3>Total Records</h3>
+          <p>0</p>
+        </div>
+        <div class="dashboard-card" id="total-amount">
+          <h3>Total Amount</h3>
+          <p>$0.00</p>
+        </div>
+        <div class="dashboard-card" id="top-category">
+          <h3>Top Category</h3>
+          <p>—</p>
+        </div>
+        <div class="dashboard-card" id="last-7-days">
+          <h3>Last 7 Days Trend</h3>
+          <p>Chart placeholder</p>
+        </div>
+      </div>
+      <div id="cap-status" role="status" aria-live="polite">
+        Remaining cap: $0.00
+      </div>
+    </section>
+
+    <!-- Records Section -->
+    <section id="records">
+      <h2>Transactions</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Amount</th>
+            <th>Category</th>
+            <th>Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Transactions will be dynamically inserted here -->
+        </tbody>
+      </table>
+      <!-- Mobile card fallback -->
+      <div class="records-cards">
+        <!-- Cards will appear here on smaller screens -->
+      </div>
+    </section>
+
+    <!-- Add/Edit Form Section -->
+    <section id="form">
+      <h2>Add / Edit Transaction</h2>
+      <form id="transaction-form">
+        <div class="form-group">
+          <label for="description">Description</label>
+          <input type="text" id="description" name="description" required>
+          <span class="error" aria-live="polite"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="amount">Amount</label>
+          <input type="number" step="0.01" id="amount" name="amount" required>
+          <span class="error" aria-live="polite"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="category">Category</label>
+          <input type="text" id="category" name="category" placeholder="Food, Books, Transport" required>
+          <span class="error" aria-live="polite"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="date">Date</label>
+          <input type="date" id="date" name="date" required>
+          <span class="error" aria-live="polite"></span>
+        </div>
+
+        <button type="submit" id="submit-btn">Save Transaction</button>
+      </form>
+    </section>
+
+    <!-- Settings Section -->
+    <section id="settings">
+      <h2>Settings</h2>
+      <form id="settings-form">
+        <div class="form-group">
+          <label for="base-currency">Base Currency</label>
+          <input type="text" id="base-currency" name="base-currency" value="USD">
+        </div>
+
+        <div class="form-group">
+          <label for="currency-eur">EUR Rate</label>
+          <input type="number" step="0.01" id="currency-eur" name="currency-eur" value="0.92">
+        </div>
+
+        <div class="form-group">
+          <label for="currency-gbp">GBP Rate</label>
+          <input type="number" step="0.01" id="currency-gbp" name="currency-gbp" value="0.78">
+        </div>
+
+        <div class="form-group">
+          <label for="spending-cap">Spending Cap</label>
+          <input type="number" step="0.01" id="spending-cap" name="spending-cap">
+        </div>
+
+        <button type="submit" id="save-settings-btn">Save Settings</button>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Your Name. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript Modules -->
+  <script src="scripts/storage.js" type="module"></script>
+  <script src="scripts/state.js" type="module"></script>
+  <script src="scripts/validators.js" type="module"></script>
+  <script src="scripts/search.js" type="module"></script>
+  <script src="scripts/ui.js" type="module"></script>
+  <script src="scripts/main.js" type="module"></script>
+</body>
+</html>
