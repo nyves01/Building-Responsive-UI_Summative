@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -54,9 +56,7 @@
       resultsContainer.appendChild(div);
     }
 
-    /* =========================
-       TEST 1 — Validator Test
-    ========================== */
+    /* ==================== TEST 1 — Validator Test ==================== */
     const invalidData = {
       description: "",
       amount: -5,
@@ -69,9 +69,7 @@
       Object.keys(errors).length === 4
     );
 
-    /* =========================
-       TEST 2 — Valid Input
-    ========================== */
+    /* ==================== TEST 2 — Valid Input ==================== */
     const validData = {
       description: "Lunch",
       amount: 12.50,
@@ -84,9 +82,7 @@
       Object.keys(validErrors).length === 0
     );
 
-    /* =========================
-       TEST 3 — Search Function
-    ========================== */
+    /* ==================== TEST 3 — Search Function ==================== */
     const sampleTransactions = [
       { description: "Lunch", category: "Food" },
       { description: "Bus ticket", category: "Transport" }
@@ -97,9 +93,7 @@
       searchResults.length === 1
     );
 
-    /* =========================
-       TEST 4 — State Structure
-    ========================== */
+    /* ==================== TEST 4 — State Structure ==================== */
     addResult("State has transactions array",
       Array.isArray(state.transactions)
     );
