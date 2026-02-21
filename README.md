@@ -86,7 +86,7 @@ student-finance-tracker/
 
 4. How to Run the Project
 
-. Clone the repository: git clone https://github.com/n.yves01/student-finance-tracker.git
+. Clone the repository: git clone https://github.com/nyves01/Building-Responsive-UI_Summative.git
 
 . Open the project folder.
 
